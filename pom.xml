@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -104,34 +103,30 @@
     <!-- Build Configuration -->
     <build>
         <plugins>
-
-            <!-- Spring Boot Maven Plugin -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-
         </plugins>
     </build>
 
-    <!-- Nexus Deployment Configuration -->
+    <!-- Nexus Repository Deployment -->
     <distributionManagement>
 
         <!-- Release Repository -->
         <repository>
             <id>nexus-releases</id>
-            <name>Nexus Release Repository</name>
+            <name>Nexus Maven Releases</name>
             <url>http://192.168.18.128:8083/repository/maven-releases/</url>
         </repository>
 
         <!-- Snapshot Repository -->
         <snapshotRepository>
             <id>nexus-snapshots</id>
-            <name>Nexus Snapshot Repository</name>
+            <name>Nexus Maven Snapshots</name>
             <url>http://192.168.18.128:8083/repository/maven-snapshots/</url>
         </snapshotRepository>
 
     </distributionManagement>
 
 </project>
-
