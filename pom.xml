@@ -7,6 +7,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- Spring Boot Parent -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -14,18 +15,23 @@
         <relativePath/>
     </parent>
 
+    <!-- Project Information -->
     <groupId>com.kk</groupId>
     <artifactId>spring-boot-mongo</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
+    <name>spring-boot-mongo</name>
+    <description>Spring Boot MongoDB Application</description>
+
+    <!-- Properties -->
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
         <logstash-logback-encoder.version>6.1</logstash-logback-encoder.version>
     </properties>
 
-    <!-- Spring Cloud dependency management -->
+    <!-- Spring Cloud Dependency Management -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -38,6 +44,7 @@
         </dependencies>
     </dependencyManagement>
 
+    <!-- Dependencies -->
     <dependencies>
 
         <!-- MongoDB -->
@@ -78,7 +85,7 @@
             <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
 
-        <!-- Logstash encoder -->
+        <!-- Logstash Encoder -->
         <dependency>
             <groupId>net.logstash.logback</groupId>
             <artifactId>logstash-logback-encoder</artifactId>
@@ -94,14 +101,37 @@
 
     </dependencies>
 
+    <!-- Build Configuration -->
     <build>
         <plugins>
+
+            <!-- Spring Boot Maven Plugin -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
         </plugins>
     </build>
+
+    <!-- Nexus Deployment Configuration -->
+    <distributionManagement>
+
+        <!-- Release Repository -->
+        <repository>
+            <id>nexus-releases</id>
+            <name>Nexus Release Repository</name>
+            <url>http://192.168.18.128:8083/repository/maven-releases/</url>
+        </repository>
+
+        <!-- Snapshot Repository -->
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>Nexus Snapshot Repository</name>
+            <url>http://192.168.18.128:8083/repository/maven-snapshots/</url>
+        </snapshotRepository>
+
+    </distributionManagement>
 
 </project>
 
